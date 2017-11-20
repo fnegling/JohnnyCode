@@ -5,14 +5,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-@SpringBootApplication
-public class JohnnyCodeApplication extends WebMvcConfigurerAdapter {
 
-	public static void main(String[] args) {
-		SpringApplication.run(JohnnyCodeApplication.class, args);
+	@SpringBootApplication
+	public class JohnnyCodeApplication {
+
+		public static void main(String[] args) {
+			SpringApplication.run(JohnnyCodeApplication.class, args);
+		}
 	}
-	@Override
-	public void addViewControllers(ViewControllerRegistry registry) {
-		registry.addRedirectViewController("/", "/readingList");
-	}
-}
