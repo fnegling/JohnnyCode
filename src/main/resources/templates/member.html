@@ -1,27 +1,27 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Reading List</title>
+    <title>Project List</title>
     <link rel="stylesheet" th:href="@{/style.css}"></link>
 </head>
 
 <body>
-<h2>Your Reading List</h2>
+<h2>Your Project List</h2>
 <div th:unless="${#lists.isEmpty(books)}">
-    <dl th:each="book : ${books}">
+    <dl th:each="name : ${project}">
         <dt class="bookHeadline">
-            <span th:text="${book.title}">书名</span> by
-            <span th:text="${book.author}">作者</span>
-            (ISBN: <span th:text="${book.isbn}">编号</span>)
+            <span th:text="${name.Projectname}">项目名</span> by
+            <span th:text="${name.name}">成员</span>
+            (ISBN: <span th:text="${name.projectId}">项目编号</span>)
         </dt>
         <dd class="bookDescription">
-          <span th:if="${book.description}"
-                th:text="${book.description}">类型</span>
-            <span th:if="${book.description eq null}">
+          <span th:if="${name.task}"
+                th:text="${name.task}">类型</span>
+            <span th:if="${name.task eq null}">
                 没有可用的描述</span>
         </dd>
     </dl>
 </div>
-<div th:if="${#lists.isEmpty(books)}">
+<div th:if="${#lists.isEmpty(project)}">
     <p>你的书单上没有书</p>
 </div>
 
