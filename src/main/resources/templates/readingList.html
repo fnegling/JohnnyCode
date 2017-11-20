@@ -5,7 +5,7 @@
   </head>
 
   <body>
-    <h2>你的阅读列表</h2>
+    <h2>Your Reading List</h2>
     <div th:unless="${#lists.isEmpty(books)}">
       <dl th:each="book : ${books}">
         <dt class="bookHeadline">
@@ -24,7 +24,6 @@
     <div th:if="${#lists.isEmpty(books)}">
       <p>你的书单上没有书</p>
     </div>
-
     
     <hr/>
     

@@ -1,0 +1,44 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Reading List</title>
+    <link rel="stylesheet" th:href="@{/style.css}"></link>
+</head>
+
+<body>
+<h2>Your Reading List</h2>
+<div th:unless="${#lists.isEmpty(books)}">
+    <dl th:each="book : ${books}">
+        <dt class="bookHeadline">
+            <span th:text="${book.title}">书名</span> by
+            <span th:text="${book.author}">作者</span>
+            (ISBN: <span th:text="${book.isbn}">编号</span>)
+        </dt>
+        <dd class="bookDescription">
+          <span th:if="${book.description}"
+                th:text="${book.description}">类型</span>
+            <span th:if="${book.description eq null}">
+                没有可用的描述</span>
+        </dd>
+    </dl>
+</div>
+<div th:if="${#lists.isEmpty(books)}">
+    <p>你的书单上没有书</p>
+</div>
+
+<hr/>
+
+<h3>Add a Project Task</h3>
+<form method="POST">
+    <label for="project">project:</label>
+    <input type="text" name="project" id="project" size="50"></input><br/>
+    <label for="task">Task:</label>
+    <input type="text" name="task" id="task" size="50"></input><br/>
+    <label for="nameId">nameId:</label>
+    <input type="text" name="nameId" id="nameId" size="15"></input><br/>
+    <label for="name">name:</label><br/>
+    <textarea name="name" id="name" cols="80" rows="5"></textarea><br/>
+    <input type="submit"></input>
+</form>
+
+</body>
+</html>
