@@ -17,12 +17,12 @@
           <span th:if="${name.task}"
                 th:text="${name.task}">类型</span>
             <span th:if="${name.task eq null}">
-                没有可用的描述</span>
+                没有可用的</span>
         </dd>
     </dl>
 </div>
 <div th:if="${#lists.isEmpty(project)}">
-    <p>你的书单上没有书</p>
+    <p>无效项目</p>
 </div>
 
 <hr/>
